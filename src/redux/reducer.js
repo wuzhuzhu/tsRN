@@ -1,11 +1,14 @@
-import {Map} from 'immutable';
 import {combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
 import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
+import {apolloReducer} from './apollo'
 
 const reducers = {
+  // Apollo Reducer
+  apollo: apolloReducer,
+
   // Authentication/login state
   auth: AuthStateReducer,
 
@@ -22,15 +25,15 @@ const reducers = {
 
 // initial state, accessor and mutator for supporting root-level
 // immutable data with redux-loop reducer combinator
-const immutableStateContainer = Map();
-const getImmutable = (child, key) => child ? child.get(key) : void 0;
-const setImmutable = (child, key, value) => child.set(key, value);
+// const immutableStateContainer = Map();
+// const getImmutable = (child, key) => child ? child.get(key) : void 0;
+// const setImmutable = (child, key, value) => child.set(key, value);
 
 const namespacedReducer = combineReducers(
   reducers,
-  immutableStateContainer,
-  getImmutable,
-  setImmutable
+  // immutableStateContainer,
+  // getImmutable,
+  // setImmutable
 );
 
 export default function mainReducer(state, action) {

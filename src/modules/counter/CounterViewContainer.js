@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
 import CounterView from './CounterView';
 
+import _ from 'lodash'
+
 export default connect(
   state => ({
-    counter: state.getIn(['counter', 'value']),
-    loading: state.getIn(['counter', 'loading']),
-    userName: state.getIn(['auth', 'currentUser', 'name']),
-    userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
+    counter: _.get(state, 'counter.value'),
+    loading: _.get(state, 'counter.loading'),
+    userName: _.get(state, 'auth.currentUser.name'),
+    userProfilePhoto: _.get(state, 'auth.currentUser.picture'),
   })
 )(CounterView);

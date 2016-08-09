@@ -4,6 +4,7 @@ import {
   View,
   StyleSheet
 } from 'react-native';
+import _ from 'lodash'
 
 import * as NavigationState from '../../modules/navigation/NavigationState';
 
@@ -34,13 +35,16 @@ const ColorView = React.createClass({
   },
 
   render() {
-
+    const invitationCount = _.get(this.props, 'stats.getStats.invitationCount')
+    const measurePatientCount = _.get(this.props, 'stats.getStats.measurePatientCount')
+    const patientTotalCount = _.get(this.props, 'stats.getStats.patientTotalCount')
     const index = this.props.index;
-    const text = `View #${index}`;
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
         <Text onPress={this.onNextPress}>
-          {text}
+          <Text onPress={this.onNextPress}>发出的邀请数目:{invitationCount}</Text>
+          <Text>总患者数目: {patientTotalCount}</Text>
+          <Text>总测量过的患者数: {measurePatientCount}</Text>
         </Text>
       </View>
     );

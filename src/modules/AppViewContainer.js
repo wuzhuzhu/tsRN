@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
 import AppView from './AppView';
+import {get} from 'lodash'
 
 export default connect(
   state => ({
-    isReady: state.getIn(['session', 'isReady']),
-    isLoggedIn: state.getIn(['auth', 'isLoggedIn'])
+    isReady: get(state, 'session.isReady'),
+    isLoggedIn: get(state, 'auth.isLoggedIn'),
   })
 )(AppView);

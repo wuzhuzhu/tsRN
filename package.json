@@ -1,5 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
+  "name": "iHealth",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --minify --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/iHealth/main.jsbundle --dev=false --minify --verbose",
     "test": "mocha src/**/*.spec.js",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
     "lint": "eslint src test",
@@ -28,13 +28,16 @@
     "check-coverage": "istanbul check-coverage coverage/coverage.json"
   },
   "dependencies": {
+    "apollo-client": "^0.4.11",
     "bluebird": "^3.3.5",
     "es6-symbol": "^3.0.2",
     "event-emitter": "^0.3.4",
+    "graphql-tag": "^0.1.11",
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
     "react": "~15.2.0",
+    "react-apollo": "^0.3.20",
     "react-dom": "~15.2.0",
     "react-native": "^0.29.0",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
@@ -44,6 +47,7 @@
     "redux-loop": "^2.1.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
+    "remote-redux-devtools": "^0.4.1",
     "standard-http-error": "^2.0.0"
   },
   "devDependencies": {
